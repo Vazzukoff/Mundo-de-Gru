@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef, useEffect, useState } from 'react';
 
 const NIDO_LOCATION = { lat: -12.0953743, lng: -77.0624951 };
@@ -11,14 +13,12 @@ const GoogleMapsComponent: React.FC = () => {
   const infoWindowRef = useRef<google.maps.InfoWindow | null>(null);
   
   const [isLoaded, setIsLoaded] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const loadGoogleMapsScript = () => {
+    const loadGoogleMapsScript = async () => {
       if (typeof window === 'undefined') return;
 
       if (!GOOGLE_MAPS_API_KEY) {
-        setError('Falta configurar GOOGLE_MAPS_API_KEY');
         console.error('Google Maps API key no configurada');
         return;
       }
@@ -30,11 +30,14 @@ const GoogleMapsComponent: React.FC = () => {
 
       const existing = document.querySelector<HTMLScriptElement>('script[data-google-maps]');
       if (existing) {
-        if ((window as any).google && (window as any).google.maps) {
+        const windowWithGoogle = window as Window & { google?: { maps: typeof google.maps } };
+        if (windowWithGoogle.google && windowWithGoogle.google.maps) {
           setIsLoaded(true);
         } else {
           existing.addEventListener('load', () => setIsLoaded(true));
-          existing.addEventListener('error', () => setError('Error cargando Google Maps'));
+          existing.addEventListener('error', () => {
+            console.error('Error cargando Google Maps');
+          });
         }
         return;
       }
@@ -46,7 +49,6 @@ const GoogleMapsComponent: React.FC = () => {
       script.setAttribute('data-google-maps', 'true');
       script.onload = () => setIsLoaded(true);
       script.onerror = () => {
-        setError('Error cargando Google Maps. Verifica tu API key.');
         console.error('Error cargando Google Maps');
       };
       document.head.appendChild(script);
@@ -100,7 +102,6 @@ const GoogleMapsComponent: React.FC = () => {
       infoWindowRef.current = infoWindow;
 
     } catch (err) {
-      setError('Error inicializando el mapa');
       console.error('Error inicializando mapa:', err);
     }
 
@@ -125,19 +126,6 @@ const GoogleMapsComponent: React.FC = () => {
       }
     };
   }, [isLoaded]);
-
-  if (error) {
-    return (
-      <div className="w-full h-80 bg-red-50 rounded-lg flex items-center justify-center">
-        <div className="text-center px-4">
-          <p className="text-red-600 text-sm font-medium">{error}</p>
-          <p className="text-gray-600 text-xs mt-2">
-            Verifica tu configuración de Google Maps API
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   if (!isLoaded) {
     return (
