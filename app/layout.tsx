@@ -3,6 +3,12 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Wapp from "@/utils/wapp";
 
+export const metadata = {
+  title: "El Mundo de Gru",
+  description:
+    "El Mundo de Gru es un nido guardería y sala de estimulación temprana dedicada al cuidado y desarrollo integral de niños y niñas.",
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">

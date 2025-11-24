@@ -1,7 +1,7 @@
 import type { ChangeEvent, FormEvent } from 'react';
-import FormInput from './form-input';
-import FormTextarea from './text-area';
-import StatusMessage from './status-message';
+import FormInput from '@/components/contacto/form-input';
+import FormTextarea from '@/components/contacto/text-area';
+import StatusMessage from '@/components/contacto/status-message';
 
 type ContactFormData = {
   name: string;

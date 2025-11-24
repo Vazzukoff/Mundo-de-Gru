@@ -1,6 +1,5 @@
 import GoogleMapsComponent from "@/utils/google-maps";
 
-
 export default function MapSection () {
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
