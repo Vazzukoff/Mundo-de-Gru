@@ -230,6 +230,9 @@ export default function Carousel({
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-300"
+                      width={dimensions.width}
+                      height={dimensions.height}
+                      priority
                     />
                   </div>
                 )}

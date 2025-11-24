@@ -42,6 +42,8 @@ export default function Header() {
               className="h-20 sm:h-24 w-auto object-contain mx-auto sm:mx-0 transition-all duration-300"
               src="/assets/logo.jpg"
               alt="Logo"
+              width={96}
+              height={96}
               priority
             />
           </div>

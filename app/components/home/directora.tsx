@@ -22,6 +22,8 @@ export default function Directora() {
                   src="/images/directora.JPG"
                   alt="Directora del Nido"
                   className="relative w-full h-96 lg:h-[500px] rounded-2xl shadow-lg object-cover transform -rotate-1 hover:rotate-0 transition-transform duration-300"
+                  width={800}
+                  height={600}
                   priority
                 />
                 {/* Badge decorativo */}

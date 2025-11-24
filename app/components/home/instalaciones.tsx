@@ -23,6 +23,8 @@ export default function Instalaciones() {
                   src="/images/instalaciones/aula.JPG"
                   alt="Aulas Educativas"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  width={800}
+                  height={600}
                   priority
                 />
                 <div className="absolute top-4 left-4 bg-cyan-500 text-white px-4 py-2 rounded-lg shadow-lg z-20">
@@ -49,6 +51,8 @@ export default function Instalaciones() {
                   src="/images/instalaciones/patio.jpg"
                   alt="Patio"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  width={800}
+                  height={600}
                   priority
                 />
                 <div className="absolute top-4 left-4 bg-cyan-500 text-white px-4 py-2 rounded-lg shadow-lg z-20">
@@ -74,6 +78,8 @@ export default function Instalaciones() {
                   src="/images/instalaciones/comedor.JPG"
                   alt="Comedor"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  width={800}
+                  height={600}
                   priority
                 />
                 <div className="absolute top-4 left-4 bg-orange-400 text-white px-4 py-2 rounded-lg shadow-lg z-20">
@@ -100,6 +106,8 @@ export default function Instalaciones() {
                   src="/images/instalaciones/gimnasio.JPG"
                   alt="Área de Juegos"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  width={800}
+                  height={600}
                   priority
                 />
                 <div className="absolute top-4 left-4 bg-amber-400 text-white px-4 py-2 rounded-lg shadow-lg z-20">

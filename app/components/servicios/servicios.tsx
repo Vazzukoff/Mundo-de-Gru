@@ -38,6 +38,8 @@ export default function ServiciosExtra () {
                 src="/images/servicios/guarderia/guarderia.JPG"
                 alt="Guardería"
                 className="relative w-full h-80 lg:h-96 rounded-2xl shadow-lg object-cover transform -rotate-1 hover:rotate-0 transition-transform duration-300"
+                width={800}
+                height={600}
                 priority
               />
             </div>
@@ -55,6 +57,8 @@ export default function ServiciosExtra () {
                 src="/images/servicios/comedor/comedor.JPG"
                 alt="Comedor"
                 className="relative w-full h-80 lg:h-96 rounded-2xl shadow-lg object-cover transform rotate-1 hover:rotate-0 transition-transform duration-300"
+                width={800}
+                height={600}
                 priority
               />
             </div>

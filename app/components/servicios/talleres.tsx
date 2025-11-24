@@ -47,6 +47,8 @@ export default function Talleres() {
                   src="/images/servicios/talleres/padres.jpg"
                   alt="Talleres para padres"
                   className="relative w-full h-48 rounded-xl shadow-md object-cover transform -rotate-0.5 group-hover:rotate-0 transition-transform duration-300"
+                  width={800}
+                  height={600}
                   priority
                 />
               </div>
@@ -80,6 +82,8 @@ export default function Talleres() {
                   src="/images/servicios/talleres/nanas.jpg"
                   alt="Talleres para nanas"
                   className="relative w-full h-48 rounded-xl shadow-md object-cover transform rotate-0.5 group-hover:rotate-0 transition-transform duration-300"
+                  width={800}
+                  height={600}
                   priority
                 />
               </div>
@@ -113,6 +117,8 @@ export default function Talleres() {
                   src="/images/servicios/talleres/nutricion.jpg"
                   alt="Taller de Nutrición"
                   className="relative w-full h-48 rounded-xl shadow-md object-cover transform -rotate-0.5 group-hover:rotate-0 transition-transform duration-300"
+                  width={800}
+                  height={600}
                   priority
                 />
               </div>
@@ -146,6 +152,8 @@ export default function Talleres() {
                   src="/images/servicios/talleres/taller de familia.jpg"
                   alt="Taller Proyecto de Familia"
                   className="relative w-full h-48 rounded-xl shadow-md object-cover transform rotate-0.5 group-hover:rotate-0 transition-transform duration-300"
+                  width={800}
+                  height={600}
                   priority
                 />
               </div>
