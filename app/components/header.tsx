@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Header() {
   const pathname = usePathname();
@@ -37,10 +38,11 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex justify-center sm:justify-start group">
           <div className="relative">
-            <img
+            <Image
               className="h-20 sm:h-24 w-auto object-contain mx-auto sm:mx-0 transition-all duration-300"
               src="/assets/logo.jpg"
               alt="Logo"
+              priority
             />
           </div>
         </Link>

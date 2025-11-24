@@ -7,7 +7,6 @@ export default function MapSection () {
         Encuéntranos
       </h2>
       <div className="w-full max-w-full">
-        {/* Placeholder para el mapa - reemplaza con tu GoogleMapsComponent */}
         <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
           <GoogleMapsComponent />
         </div>

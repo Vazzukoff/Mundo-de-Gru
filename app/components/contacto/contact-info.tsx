@@ -3,7 +3,6 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 
-// Sub-componente: Información de Contacto
 export default function ContactInfo() {
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">

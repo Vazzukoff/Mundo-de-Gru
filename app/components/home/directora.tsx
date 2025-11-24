@@ -1,3 +1,6 @@
+import Image from "next/image"
+
+
 export default function Directora() {
   return (
     <div className="bg-gray-50 py-16 px-4">
@@ -15,10 +18,11 @@ export default function Directora() {
             <div className="relative order-1 lg:order-1">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 to-amber-100 rounded-2xl transform rotate-3 scale-105"></div>
               <div className="relative">
-                <img
-                  src="/images/portada1.JPG"
+                <Image
+                  src="/images/directora.JPG"
                   alt="Directora del Nido"
                   className="relative w-full h-96 lg:h-[500px] rounded-2xl shadow-lg object-cover transform -rotate-1 hover:rotate-0 transition-transform duration-300"
+                  priority
                 />
                 {/* Badge decorativo */}
                 <div className="absolute -bottom-4 -right-4 bg-cyan-500 text-white px-6 py-3 rounded-xl shadow-lg transform rotate-3">

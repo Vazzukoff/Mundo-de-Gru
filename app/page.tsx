@@ -1,9 +1,9 @@
-import QuienesSomos from "@/components/root/quienes-somos";
-import Instalaciones from "@/components/root/instalaciones";
-import Unicos from "@/components/root/unicos";
-import Directora from "@/components/root/directora";
-import Galeria from "@/components/root/galeria";
-import Hero from "@/components/root/hero";
+import QuienesSomos from "@/components/home/quienes-somos";
+import Instalaciones from "@/components/home/instalaciones";
+import Unicos from "@/components/home/unicos";
+import Directora from "@/components/home/directora";
+import Galeria from "@/components/home/galeria";
+import Hero from "@/components/home/hero";
 
 
 export default function Home() {

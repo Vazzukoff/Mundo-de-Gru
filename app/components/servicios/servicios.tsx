@@ -1,6 +1,7 @@
 import { MdOutlineToys } from "react-icons/md";
 import { FaUtensils } from "react-icons/fa";
 import { FaHeart, FaAppleAlt } from "react-icons/fa";
+import Image from "next/image";
 
 export default function ServiciosExtra () {
   return (
@@ -33,10 +34,11 @@ export default function ServiciosExtra () {
 
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 to-cyan-200 rounded-2xl transform rotate-3 scale-105"></div>
-              <img
+              <Image
                 src="/images/servicios/guarderia/guarderia.JPG"
                 alt="Guardería"
                 className="relative w-full h-80 lg:h-96 rounded-2xl shadow-lg object-cover transform -rotate-1 hover:rotate-0 transition-transform duration-300"
+                priority
               />
             </div>
           </div>
@@ -49,10 +51,11 @@ export default function ServiciosExtra () {
 
             <div className="relative order-2 lg:order-1">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-100 to-amber-200 rounded-2xl transform -rotate-3 scale-105"></div>
-              <img
+              <Image
                 src="/images/servicios/comedor/comedor.JPG"
                 alt="Comedor"
                 className="relative w-full h-80 lg:h-96 rounded-2xl shadow-lg object-cover transform rotate-1 hover:rotate-0 transition-transform duration-300"
+                priority
               />
             </div>
 

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaUsers, FaHeart, FaAppleAlt, FaHome } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Talleres() {
   return (
@@ -42,10 +43,11 @@ export default function Talleres() {
               </p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl transform rotate-1 scale-105"></div>
-                <img
+                <Image
                   src="/images/servicios/talleres/padres.jpg"
                   alt="Talleres para padres"
                   className="relative w-full h-48 rounded-xl shadow-md object-cover transform -rotate-0.5 group-hover:rotate-0 transition-transform duration-300"
+                  priority
                 />
               </div>
               <div className="flex items-center gap-3 bg-orange-50 p-4 rounded-lg mt-6">
@@ -74,10 +76,11 @@ export default function Talleres() {
               </p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 to-cyan-200 rounded-xl transform -rotate-1 scale-105"></div>
-                <img
+                <Image
                   src="/images/servicios/talleres/nanas.jpg"
                   alt="Talleres para nanas"
                   className="relative w-full h-48 rounded-xl shadow-md object-cover transform rotate-0.5 group-hover:rotate-0 transition-transform duration-300"
+                  priority
                 />
               </div>
               <div className="flex items-center gap-3 bg-cyan-50 p-4 rounded-lg mt-6">
@@ -106,10 +109,11 @@ export default function Talleres() {
               </p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-100 to-amber-200 rounded-xl transform rotate-1 scale-105"></div>
-                <img
+                <Image
                   src="/images/servicios/talleres/nutricion.jpg"
                   alt="Taller de Nutrición"
                   className="relative w-full h-48 rounded-xl shadow-md object-cover transform -rotate-0.5 group-hover:rotate-0 transition-transform duration-300"
+                  priority
                 />
               </div>
               <div className="flex items-center gap-3 bg-amber-50 p-4 rounded-lg mt-6">
@@ -138,10 +142,11 @@ export default function Talleres() {
               </p>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl transform -rotate-1 scale-105"></div>
-                <img
+                <Image
                   src="/images/servicios/talleres/taller de familia.jpg"
                   alt="Taller Proyecto de Familia"
                   className="relative w-full h-48 rounded-xl shadow-md object-cover transform rotate-0.5 group-hover:rotate-0 transition-transform duration-300"
+                  priority
                 />
               </div>
               <div className="flex items-center gap-3 bg-orange-50 p-4 rounded-lg mt-6">

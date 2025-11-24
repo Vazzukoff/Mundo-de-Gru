@@ -6,6 +6,7 @@ import type { PanInfo } from "framer-motion";
 import React from "react";
 import type { JSX } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Image from "next/image";
 
 export interface CarouselItem {
   title: string;
@@ -225,7 +226,7 @@ export default function Carousel({
               >
                 {item.image && (
                   <div className="relative w-full h-full overflow-hidden">
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-300"
