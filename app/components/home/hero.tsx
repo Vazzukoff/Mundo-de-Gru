@@ -38,7 +38,7 @@ export default function Hero() {
           {/* Título principal */}
           <h1 
             id="hero-heading" 
-            className="text-4xl md:text-5xl font-extrabold drop-shadow-2xl leading-tight"
+            className="text-4xl md:text-6xl font-extrabold drop-shadow-2xl leading-tight"
           >
             <span className="bg-gradient-to-r from-cyan-400 via-amber-300 to-orange-400 bg-clip-text text-transparent">
               ¡Admisión 2026 abierta!

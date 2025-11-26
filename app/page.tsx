@@ -117,7 +117,7 @@ export default function Home() {
         }}
       />
 
-      <main className="bg-gray-50 min-h-screen">
+      <main className="bg-gray-50 min-h-screen select-none">
         <Hero />
         <QuienesSomos />
         <Instalaciones />

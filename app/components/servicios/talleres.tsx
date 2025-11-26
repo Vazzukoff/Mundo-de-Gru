@@ -1,31 +1,120 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FaUsers, FaHeart, FaAppleAlt, FaHome } from "react-icons/fa";
 import Image from "next/image";
+import { useEffect, useRef, useState } from 'react';
 
 export default function Talleres() {
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const dividerRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const articlesRef = useRef<(HTMLElement | null)[]>([]);
+
+  const [isVisible, setIsVisible] = useState({
+    header: false,
+    divider: false,
+    description: false,
+    articles: [false, false, false, false]
+  });
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          
+          if (target === headerRef.current) {
+            setTimeout(() => {
+              setIsVisible(prev => ({ ...prev, header: true }));
+            }, 100);
+          }
+          
+          if (target === dividerRef.current) {
+            setTimeout(() => {
+              setIsVisible(prev => ({ ...prev, divider: true }));
+            }, 200);
+          }
+          
+          if (target === descriptionRef.current) {
+            setTimeout(() => {
+              setIsVisible(prev => ({ ...prev, description: true }));
+            }, 400);
+          }
+          
+          articlesRef.current.forEach((article, index) => {
+            if (target === article) {
+              setTimeout(() => {
+                setIsVisible(prev => ({
+                  ...prev,
+                  articles: prev.articles.map((val, i) => i === index ? true : val)
+                }));
+              }, 700 + (index * 150));
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    if (headerRef.current) observer.observe(headerRef.current);
+    if (dividerRef.current) observer.observe(dividerRef.current);
+    if (descriptionRef.current) observer.observe(descriptionRef.current);
+    articlesRef.current.forEach(article => article && observer.observe(article));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="w-full px-4 sm:px-6" aria-labelledby="talleres-heading">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
+    <section ref={sectionRef} className="w-full px-4 sm:px-6" aria-labelledby="talleres-heading">
+      <div>
         <header className="text-center mb-12">
-          <h2 id="talleres-heading" className="font-bold text-4xl sm:text-5xl text-gray-800 mb-6">
+          <h2 
+            ref={headerRef}
+            id="talleres-heading" 
+            className={`font-bold text-4xl sm:text-5xl text-gray-800 mb-6 transition-all duration-700 ${
+              isVisible.header
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 -translate-y-8'
+            }`}
+          >
             Talleres complementarios
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 via-amber-400 to-orange-400 mx-auto rounded-full mb-8" role="presentation"></div>
-          <p className="text-lg text-gray-600 font-medium max-w-2xl mx-auto">
+          <div 
+            ref={dividerRef}
+            className={`w-24 h-1 bg-gradient-to-r from-cyan-500 via-amber-400 to-orange-400 mx-auto rounded-full mb-8 transition-all duration-700 ${
+              isVisible.divider
+                ? 'opacity-100 scale-x-100'
+                : 'opacity-0 scale-x-0'
+            }`} 
+            role="presentation"
+          ></div>
+          <p 
+            ref={descriptionRef}
+            className={`text-lg text-gray-600 font-medium max-w-2xl mx-auto transition-all duration-700 ${
+              isVisible.description
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
             Talleres especializados para toda la familia educativa
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Talleres para padres y abuelos */}
-          <article className="group">
+          <article 
+            ref={el => { articlesRef.current[0] = el; }}
+            className={`group transition-all duration-700 ${
+              isVisible.articles[0]
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-12'
+            }`}
+          >
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-8 h-full hover:-translate-y-2">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-orange-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
@@ -60,7 +149,15 @@ export default function Talleres() {
             </div>
           </article>
 
-          <article className="group">
+          {/* Talleres para nanas */}
+          <article 
+            ref={el => { articlesRef.current[1] = el; }}
+            className={`group transition-all duration-700 ${
+              isVisible.articles[1]
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-12'
+            }`}
+          >
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-8 h-full hover:-translate-y-2">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-cyan-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
@@ -95,7 +192,15 @@ export default function Talleres() {
             </div>
           </article>
 
-          <article className="group">
+          {/* Taller de Nutrición */}
+          <article 
+            ref={el => { articlesRef.current[2] = el; }}
+            className={`group transition-all duration-700 ${
+              isVisible.articles[2]
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-12'
+            }`}
+          >
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-8 h-full hover:-translate-y-2">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
@@ -130,7 +235,15 @@ export default function Talleres() {
             </div>
           </article>
 
-          <article className="group">
+          {/* Taller Proyecto de Familia */}
+          <article 
+            ref={el => { articlesRef.current[3] = el; }}
+            className={`group transition-all duration-700 ${
+              isVisible.articles[3]
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-12'
+            }`}
+          >
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-8 h-full hover:-translate-y-2">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-orange-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
@@ -165,7 +278,7 @@ export default function Talleres() {
             </div>
           </article>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }

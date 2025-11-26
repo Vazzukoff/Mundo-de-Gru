@@ -1,25 +1,108 @@
+'use client';
+
 import Image from "next/image"
+import { useEffect, useRef, useState } from 'react';
 
 export default function Directora() {
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const dividerRef = useRef(null);
+  const imageRef = useRef(null);
+  const contentRef = useRef(null);
+
+  const [isVisible, setIsVisible] = useState({
+    header: false,
+    divider: false,
+    image: false,
+    content: false
+  });
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          
+          if (target === headerRef.current) {
+            setTimeout(() => {
+              setIsVisible(prev => ({ ...prev, header: true }));
+            }, 100);
+          }
+          
+          if (target === dividerRef.current) {
+            setTimeout(() => {
+              setIsVisible(prev => ({ ...prev, divider: true }));
+            }, 300);
+          }
+          
+          if (target === imageRef.current) {
+            setTimeout(() => {
+              setIsVisible(prev => ({ ...prev, image: true }));
+            }, 500);
+          }
+          
+          if (target === contentRef.current) {
+            setTimeout(() => {
+              setIsVisible(prev => ({ ...prev, content: true }));
+            }, 700);
+          }
+        }
+      });
+    }, observerOptions);
+
+    if (headerRef.current) observer.observe(headerRef.current);
+    if (dividerRef.current) observer.observe(dividerRef.current);
+    if (imageRef.current) observer.observe(imageRef.current);
+    if (contentRef.current) observer.observe(contentRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section 
+      ref={sectionRef}
       className="bg-gray-50 py-16 px-4"
       aria-labelledby="directora-heading"
     >
       <div className="max-w-6xl mx-auto">
         <header className="text-center mb-12">
           <h2 
+            ref={headerRef}
             id="directora-heading"
-            className="font-bold text-4xl sm:text-5xl text-gray-800 mb-6"
+            className={`font-bold text-4xl sm:text-5xl text-gray-800 mb-6 transition-all duration-700 ${
+              isVisible.header
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 -translate-y-8'
+            }`}
           >
             Nuestra Directora de Nido Infantil
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 via-amber-400 to-orange-400 mx-auto rounded-full mb-8" role="presentation"></div>
+          <div 
+            ref={dividerRef}
+            className={`w-24 h-1 bg-gradient-to-r from-cyan-500 via-amber-400 to-orange-400 mx-auto rounded-full mb-8 transition-all duration-700 ${
+              isVisible.divider
+                ? 'opacity-100 scale-x-100'
+                : 'opacity-0 scale-x-0'
+            }`} 
+            role="presentation"
+          ></div>
         </header>
 
         <article className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 lg:p-12 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="relative order-1 lg:order-1">
+            <div 
+              ref={imageRef}
+              className={`relative order-1 lg:order-1 transition-all duration-700 ${
+                isVisible.image
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 -translate-x-8'
+              }`}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 to-amber-100 rounded-2xl transform rotate-3 scale-105" role="presentation"></div>
               <div className="relative">
                 <Image
@@ -36,7 +119,14 @@ export default function Directora() {
               </div>
             </div>
             
-            <div className="space-y-6 order-2 lg:order-2">
+            <div 
+              ref={contentRef}
+              className={`space-y-6 order-2 lg:order-2 transition-all duration-700 ${
+                isVisible.content
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 translate-x-8'
+              }`}
+            >
               <div>
                 <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-2">
                   Miss Gru

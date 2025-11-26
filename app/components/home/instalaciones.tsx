@@ -1,28 +1,123 @@
+'use client';
+
 import Image from "next/image"
+import { useEffect, useRef, useState } from 'react';
 
 export default function Instalaciones() {
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const dividerRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const itemsRef = useRef<(HTMLElement | null)[]>([]);
+
+  const [isVisible, setIsVisible] = useState({
+    header: false,
+    divider: false,
+    description: false,
+    items: [false, false, false, false]
+  });
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          
+          if (target === headerRef.current) {
+            setTimeout(() => {
+              setIsVisible(prev => ({ ...prev, header: true }));
+            }, 100);
+          }
+          
+          if (target === dividerRef.current) {
+            setTimeout(() => {
+              setIsVisible(prev => ({ ...prev, divider: true }));
+            }, 300);
+          }
+          
+          if (target === descriptionRef.current) {
+            setTimeout(() => {
+              setIsVisible(prev => ({ ...prev, description: true }));
+            }, 500);
+          }
+          
+          itemsRef.current.forEach((item, index) => {
+            if (target === item) {
+              setTimeout(() => {
+                setIsVisible(prev => ({
+                  ...prev,
+                  items: prev.items.map((val, i) => i === index ? true : val)
+                }));
+              }, 700 + (index * 150));
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    if (headerRef.current) observer.observe(headerRef.current);
+    if (dividerRef.current) observer.observe(dividerRef.current);
+    if (descriptionRef.current) observer.observe(descriptionRef.current);
+    itemsRef.current.forEach(item => item && observer.observe(item));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section 
+      ref={sectionRef}
       className="bg-white py-16 px-4"
       aria-labelledby="instalaciones-heading"
     >
       <div className="max-w-6xl mx-auto">
         <header className="text-center mb-12">
           <h2 
+            ref={headerRef}
             id="instalaciones-heading"
-            className="font-bold text-4xl sm:text-5xl text-gray-800 mb-6"
+            className={`font-bold text-4xl sm:text-5xl text-gray-800 mb-6 transition-all duration-700 ${
+              isVisible.header
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 -translate-y-8'
+            }`}
           >
             Nuestras Instalaciones de Nido Infantil
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 via-amber-400 to-orange-400 mx-auto rounded-full mb-8" role="presentation"></div>
-          <p className="text-lg text-gray-600 font-medium max-w-2xl mx-auto">
+          <div 
+            ref={dividerRef}
+            className={`w-24 h-1 bg-gradient-to-r from-cyan-500 via-amber-400 to-orange-400 mx-auto rounded-full mb-8 transition-all duration-700 ${
+              isVisible.divider
+                ? 'opacity-100 scale-x-100'
+                : 'opacity-0 scale-x-0'
+            }`} 
+            role="presentation"
+          ></div>
+          <p 
+            ref={descriptionRef}
+            className={`text-lg text-gray-600 font-medium max-w-2xl mx-auto transition-all duration-700 ${
+              isVisible.description
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
             Espacios de guardería diseñados especialmente para la estimulación temprana y el desarrollo integral de tu pequeño
           </p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Aulas Educativas */}
-          <article className="group">
+          <article 
+            ref={el => { itemsRef.current[0] = el; }}
+            className={`group transition-all duration-700 ${
+              isVisible.items[0]
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-12'
+            }`}
+          >
             <div className="bg-gray-50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden hover:-translate-y-2">
               <div className="relative h-64 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent z-10"></div>
@@ -51,7 +146,14 @@ export default function Instalaciones() {
           </article>
 
           {/* Patio */}
-          <article className="group">
+          <article 
+            ref={el => { itemsRef.current[1] = el; }}
+            className={`group transition-all duration-700 ${
+              isVisible.items[1]
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-12'
+            }`}
+          >
             <div className="bg-gray-50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden hover:-translate-y-2">
               <div className="relative h-64 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent z-10"></div>
@@ -80,7 +182,14 @@ export default function Instalaciones() {
           </article>
 
           {/* Comedor */}
-          <article className="group">
+          <article 
+            ref={el => { itemsRef.current[2] = el; }}
+            className={`group transition-all duration-700 ${
+              isVisible.items[2]
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-12'
+            }`}
+          >
             <div className="bg-gray-50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden hover:-translate-y-2">
               <div className="relative h-64 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-transparent z-10"></div>
@@ -109,7 +218,14 @@ export default function Instalaciones() {
           </article>
 
           {/* Gimnasio */}
-          <article className="group">
+          <article 
+            ref={el => { itemsRef.current[3] = el; }}
+            className={`group transition-all duration-700 ${
+              isVisible.items[3]
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-12'
+            }`}
+          >
             <div className="bg-gray-50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden hover:-translate-y-2">
               <div className="relative h-64 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-transparent z-10"></div>
