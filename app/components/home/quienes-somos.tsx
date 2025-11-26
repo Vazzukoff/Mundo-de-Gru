@@ -7,7 +7,7 @@ export default function QuienesSomos() {
   const headerRef = useRef(null);
   const dividerRef = useRef(null);
   const articleRef = useRef(null);
-  const paragraphsRef = useRef([]);
+  const paragraphsRef = useRef<(HTMLParagraphElement | null)[]>([]);
 
   const [isVisible, setIsVisible] = useState({
     header: false,
@@ -107,7 +107,7 @@ export default function QuienesSomos() {
         >
           <div className="space-y-6 text-center font-medium text-gray-700 leading-relaxed">
             <p 
-              ref={el => paragraphsRef.current[0] = el}
+              ref={el => { paragraphsRef.current[0] = el; }}
               className={`text-lg transition-all duration-700 ${
                 isVisible.paragraphs[0]
                   ? 'opacity-100 translate-x-0'
@@ -120,7 +120,7 @@ export default function QuienesSomos() {
             </p>
             
             <p 
-              ref={el => paragraphsRef.current[1] = el}
+              ref={el => { paragraphsRef.current[1] = el; }}
               className={`text-lg transition-all duration-700 ${
                 isVisible.paragraphs[1]
                   ? 'opacity-100 translate-x-0'
@@ -133,7 +133,7 @@ export default function QuienesSomos() {
             </p>
             
             <p 
-              ref={el => paragraphsRef.current[2] = el}
+              ref={el => { paragraphsRef.current[2] = el; }}
               className={`text-lg transition-all duration-700 ${
                 isVisible.paragraphs[2]
                   ? 'opacity-100 translate-x-0'
