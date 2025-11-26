@@ -20,7 +20,6 @@ export default function Unicos() {
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1 - Enfoque Familiar */}
           <article className="group">
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center h-full border-2 border-cyan-500 hover:-translate-y-2">
               <div 
@@ -38,7 +37,6 @@ export default function Unicos() {
             </div>
           </article>
 
-          {/* Card 2 - Metodología */}
           <article className="group">
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center h-full border-2 border-amber-400 hover:-translate-y-2">
               <div 
@@ -57,7 +55,6 @@ export default function Unicos() {
             </div>
           </article>
 
-          {/* Card 3 - Entorno */}
           <article className="group">
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center h-full border-2 border-orange-400 hover:-translate-y-2">
               <div 

@@ -44,7 +44,7 @@ export default function Instalaciones() {
                 </h3>
                 <p className="text-gray-600 font-medium leading-relaxed">
                   Nuestras aulas de nido infantil son amplias, luminosas y organizadas por contextos de aprendizaje. Cada espacio 
-                  está cuidadosamente preparado para la estimulación temprana, invitando a la exploración, el juego y el descubrimiento en un ambiente de guardería seguro.
+                  está cuidadosamente preparado para la estimulación temprana, invitando a la exploración, el juego y el descubrimiento.
                 </p>
               </div>
             </div>
@@ -72,7 +72,8 @@ export default function Instalaciones() {
                   Patio de Juegos y Movimiento Libre
                 </h3>
                 <p className="text-gray-600 font-medium leading-relaxed">
-                  Amplio espacio seguro de guardería diseñado para que los niños exploren el movimiento libre mientras desarrollan sus habilidades motrices y sociales a través de actividades de estimulación temprana al aire libre.
+                  Amplio espacio seguro de guardería diseñado para que los niños exploren el movimiento libre mientras desarrollan sus habilidades motrices 
+                  y sociales a través de actividades de estimulación temprana al aire libre.
                 </p>
               </div>
             </div>
@@ -101,7 +102,7 @@ export default function Instalaciones() {
                 </h3>
                 <p className="text-gray-600 font-medium leading-relaxed">
                   Nuestro comedor de guardería es un espacio acogedor y cuidadosamente diseñado donde los niños disfrutan alimentos 
-                  nutritivos a la vez que experimentan autonomía y convivencia, parte fundamental del desarrollo integral en nuestro nido.
+                  nutritivos a la vez que experimentan autonomía y convivencia.
                 </p>
               </div>
             </div>
@@ -129,7 +130,8 @@ export default function Instalaciones() {
                   Gimnasio de Estimulación Motriz
                 </h3>
                 <p className="text-gray-600 font-medium leading-relaxed">
-                  Espacio seguro y amplio de <strong>estimulación temprana</strong> equipado con colchonetas, rampas, túneles, bloques y materiales suaves que invitan a trepar, saltar y explorar sus capacidades motoras en nuestro <strong>nido infantil</strong>.
+                  Espacio seguro y amplio de estimulación temprana equipado con colchonetas, rampas, túneles, bloques y materiales suaves que invitan a 
+                  trepar, saltar y explorar sus capacidades motoras.
                 </p>
               </div>
             </div>

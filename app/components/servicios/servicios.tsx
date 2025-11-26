@@ -6,7 +6,6 @@ import Image from "next/image";
 export default function ServiciosExtra() {
   return (
     <div>
-      {/* Guardería */}
       <article className="mb-16">
         <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 lg:p-12 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -51,7 +50,6 @@ export default function ServiciosExtra() {
         </div>
       </article>
 
-      {/* Comedor */}
       <article className="mb-20">
         <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 lg:p-12 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">

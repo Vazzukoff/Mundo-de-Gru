@@ -15,11 +15,11 @@ export default function Talleres() {
       >
         <header className="text-center mb-12">
           <h2 id="talleres-heading" className="font-bold text-4xl sm:text-5xl text-gray-800 mb-6">
-            Talleres de Estimulación Temprana
+            Talleres complementarios
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 via-amber-400 to-orange-400 mx-auto rounded-full mb-8" role="presentation"></div>
           <p className="text-lg text-gray-600 font-medium max-w-2xl mx-auto">
-            Talleres especializados de nuestro nido infantil para toda la familia educativa
+            Talleres especializados para toda la familia educativa
           </p>
         </header>
 
@@ -60,7 +60,6 @@ export default function Talleres() {
             </div>
           </article>
 
-          {/* Talleres para nanas */}
           <article className="group">
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-8 h-full hover:-translate-y-2">
               <div className="flex items-center gap-4 mb-6">
@@ -96,7 +95,6 @@ export default function Talleres() {
             </div>
           </article>
 
-          {/* Taller de Nutrición */}
           <article className="group">
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-8 h-full hover:-translate-y-2">
               <div className="flex items-center gap-4 mb-6">
@@ -132,7 +130,6 @@ export default function Talleres() {
             </div>
           </article>
 
-          {/* Taller Proyecto de Familia */}
           <article className="group">
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-8 h-full hover:-translate-y-2">
               <div className="flex items-center gap-4 mb-6">
