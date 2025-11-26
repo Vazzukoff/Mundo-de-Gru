@@ -42,7 +42,7 @@ export default function QuienesSomos() {
           if (target === articleRef.current) {
             setTimeout(() => {
               setIsVisible(prev => ({ ...prev, article: true }));
-            }, 500);
+            }, 400);
           }
           
           paragraphsRef.current.forEach((p, index) => {

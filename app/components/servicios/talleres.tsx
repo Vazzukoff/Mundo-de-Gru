@@ -44,7 +44,7 @@ export default function Talleres() {
           if (target === descriptionRef.current) {
             setTimeout(() => {
               setIsVisible(prev => ({ ...prev, description: true }));
-            }, 400);
+            }, 300);
           }
           
           articlesRef.current.forEach((article, index) => {
@@ -54,7 +54,7 @@ export default function Talleres() {
                   ...prev,
                   articles: prev.articles.map((val, i) => i === index ? true : val)
                 }));
-              }, 700 + (index * 150));
+              }, 300 + (index * 150));
             }
           });
         }

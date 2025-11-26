@@ -53,7 +53,7 @@ export default function Instalaciones() {
                   ...prev,
                   items: prev.items.map((val, i) => i === index ? true : val)
                 }));
-              }, 700 + (index * 150));
+              }, 400 + (index * 150));
             }
           });
         }

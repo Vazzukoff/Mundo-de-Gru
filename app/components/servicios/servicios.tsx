@@ -1,9 +1,35 @@
+"use client";
+
 import { MdOutlineToys } from "react-icons/md";
 import { FaUtensils } from "react-icons/fa";
 import { FaHeart, FaAppleAlt } from "react-icons/fa";
 import Image from "next/image";
+import { useEffect, useRef, useState } from 'react';
 
 export default function ServiciosExtra() {
+  const contentRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.target === contentRef.current) {
+          setTimeout(() => {
+            setIsVisible(true);
+          }, 300);
+        }
+      });
+    }, observerOptions);
+
+    if (contentRef.current) observer.observe(contentRef.current);
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <div>
       <article className="mb-16">
@@ -66,7 +92,14 @@ export default function ServiciosExtra() {
               />
             </div>
 
-            <div className="space-y-6 order-1 lg:order-2">
+            <div 
+              ref={contentRef}
+              className={`space-y-6 order-1 lg:order-2 transition-all duration-700 ${
+                isVisible
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 translate-x-8'
+              }`}
+            >
               <div className="flex items-center gap-4">
                 <div 
                   className="w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center"
