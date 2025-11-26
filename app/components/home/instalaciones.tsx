@@ -37,13 +37,13 @@ export default function Instalaciones() {
           if (target === dividerRef.current) {
             setTimeout(() => {
               setIsVisible(prev => ({ ...prev, divider: true }));
-            }, 300);
+            }, 200);
           }
           
           if (target === descriptionRef.current) {
             setTimeout(() => {
               setIsVisible(prev => ({ ...prev, description: true }));
-            }, 500);
+            }, 300);
           }
           
           itemsRef.current.forEach((item, index) => {
@@ -85,7 +85,7 @@ export default function Instalaciones() {
                 : 'opacity-0 -translate-y-8'
             }`}
           >
-            Nuestras Instalaciones de Nido Infantil
+            Nuestras Instalaciones
           </h2>
           <div 
             ref={dividerRef}

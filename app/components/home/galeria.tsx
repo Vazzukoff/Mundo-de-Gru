@@ -109,7 +109,7 @@ export default function Galeria() {
                 : 'opacity-0 -translate-y-8'
             }`}
           >
-            Galería del Nido Infantil
+            Galería
           </h2>
           <div 
             ref={dividerRef}

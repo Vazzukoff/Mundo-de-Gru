@@ -80,7 +80,7 @@ export default function Unicos() {
                 : 'opacity-0 -translate-y-8'
             }`}
           >
-            ¿Por qué nuestro nido infantil es único?
+            ¿Qué nos diferencia?
           </h2>
 
           <div 

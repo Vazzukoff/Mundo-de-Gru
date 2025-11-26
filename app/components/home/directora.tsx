@@ -80,7 +80,7 @@ export default function Directora() {
                 : 'opacity-0 -translate-y-8'
             }`}
           >
-            Nuestra Directora de Nido Infantil
+            Nuestra Directora
           </h2>
           <div 
             ref={dividerRef}
