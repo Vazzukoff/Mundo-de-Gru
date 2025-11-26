@@ -39,7 +39,7 @@ export default function ContactoClient() {
     const result = ContactFormSchema.safeParse(formData);
     if (!result.success) {
       const formErrors: Partial<Record<keyof FormData, string>> = {};
-      result.error.errors.forEach((err) => {
+      result.error.issues.forEach((err) => {
         const field = err.path[0] as keyof FormData;
         formErrors[field] = err.message;
       });
